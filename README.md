@@ -18,7 +18,7 @@ This repository contains the core system modules described in the Kori deck:
 
 ## Core Loop (V2): Private Interaction → Offline Experience → Settlement
 
-1) A conversation moves from group chat to 1:1 chat via an invite mechanism
+1) A conversation moves from group chat to 1:1 chat via an invite mechanism <br>
    (initiated with C-tokens to discourage spam and signal intent).
 
 2) The visitor requests a casual offline interaction
