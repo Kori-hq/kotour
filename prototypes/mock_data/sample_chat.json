@@ -1,0 +1,33 @@
+{
+  "conversationId": "conv_001",
+  "participants": [
+    { "userId": "u_tourist_01", "role": "tourist", "name": "Mina" },
+    { "userId": "u_local_01", "role": "local", "name": "Jisoo" }
+  ],
+  "messages": [
+    {
+      "messageId": "m_001",
+      "authorUserId": "u_tourist_01",
+      "timestamp": 1766900000000,
+      "text": "Hi! I'm landing in Seoul tomorrow. Any late-night Korean BBQ near Jongno?"
+    },
+    {
+      "messageId": "m_002",
+      "authorUserId": "u_local_01",
+      "timestamp": 1766900060000,
+      "text": "If you want something local, try #kkanbujongno. It's great after 10pm."
+    },
+    {
+      "messageId": "m_003",
+      "authorUserId": "u_tourist_01",
+      "timestamp": 1766900120000,
+      "text": "Nice. Can you share the link?"
+    },
+    {
+      "messageId": "m_004",
+      "authorUserId": "u_local_01",
+      "timestamp": 1766900180000,
+      "text": "Sure — once you confirm the place, Kori generates a page and a referral link."
+    }
+  ]
+}
