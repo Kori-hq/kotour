@@ -1,6 +1,6 @@
 # Kori Core
 
-Kori is a "social settlement layer" for global travel: real locals help real travelers before & after they land, and every helpful conversation becomes a trusted travel asset.
+Kori Protocol is a human-first travel infrastructure that turns real conversations between locals and visitors into trusted, incentive-aligned travel assets.
 
 This repository contains the core system modules described in the Kori deck:
 - The AI Asset Generation Engine (unstructured chat → structured business page)
@@ -30,7 +30,7 @@ This repository contains the core system modules described in the Kori deck:
 
 5) The visitor covers the local's meal or experience cost.
 
-6) After the interaction, the visitor optionally tips the local via Kori.
+6) After the interaction, the visitor optionally tips the local via Kori app.
 
 ## Repo Layout
 - docs/ : system explanation + diagrams
