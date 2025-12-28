@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BusinessPage",
+  "description": "A structured travel asset created from human conversation.",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "provider",
+    "providerPlaceId",
+    "location",
+    "createdAt",
+    "createdBy",
+    "sourceConversationId"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Internal unique identifier for the business page."
+    },
+    "name": {
+      "type": "string",
+      "description": "Canonical display name of the place."
+    },
+    "provider": {
+      "type": "string",
+      "enum": ["google", "naver", "kakao", "manual"],
+      "description": "Source provider used at creation time."
+    },
+    "providerPlaceId": {
+      "type": "string",
+      "description": "External provider place identifier."
+    },
+    "location": {
+      "type": "object",
+      "required": ["lat", "lng"],
+      "properties": {
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "address": { "type": "string" }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp of page creation."
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "User ID who confirmed creation."
+    },
+    "sourceConversationId": {
+      "type": "string",
+      "description": "Conversation where this page originated."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "flagged", "archived"],
+      "default": "active"
+    },
+    "metrics": {
+      "type": "object",
+      "properties": {
+        "views": { "type": "number", "default": 0 },
+        "referralClicks": { "type": "number", "default": 0 },
+        "likes": { "type": "number", "default": 0 }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Community-added descriptors (e.g. 'bbq', 'late-night')."
+    },
+    "revision": {
+      "type": "number",
+      "description": "Incremented on verified edits.",
+      "default": 1
+    }
+  }
+}
