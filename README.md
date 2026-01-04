@@ -1,43 +1,51 @@
-# Kori Core
+# Kori Protocol: The Social Settlement Layer
 
-Kori Protocol is a human-first travel infrastructure that turns real conversations between locals and visitors into trusted, incentive-aligned travel assets.
+## Status
+🚧 **Early-Stage Scaffold**
+*Modules are decoupled for phased implementation (Devnet V1).*
 
-This repository contains the core system modules described in the Kori deck:
-- The AI Asset Generation Engine (unstructured chat → structured business page)
-- Closed-loop micro-rewards (C-token ledger and referral click rewards)
-- Settlement rail abstractions (optional escrow / verification / payout)
-- Trust & safety primitives (anti-click-game, verification, abuse controls)
+## 1. Abstract
+Kori is a human-first travel infrastructure that turns real conversations between locals and visitors into trusted, incentive-aligned travel assets.
 
-## Core Loop (V1): Chat → Asset → Reward
+Unlike generic "data marketplaces," Kori acts as a **Social Settlement Layer**. It utilizes Solana’s high-throughput runtime to verify and tokenize "digital handshakes" (travel advice, local guidance, and concierge services) into atomic assets that can be rewarded, traded, or monetized.
 
-1) Visitors and locals chat in group discussions.
-2) A user references a place using a hashtag (e.g. #kkanbujongno).
-3) The system extracts the entity, calls the Places API, and requests user confirmation.
-4) A business page is created and linked back to the chat.
-5) When visitors click outbound links, the referrer earns C-tokens (closed-loop).
+## 2. System Architecture
+The protocol is designed as a hybrid **Off-Chain Intelligence / On-Chain Settlement** system.
 
-## Core Loop (V2): Private Interaction → Offline Experience → Settlement
+### 2.1 The AI Asset Generation Engine (Off-Chain)
+* **Input:** Unstructured Group Chat / 1:1 DMs.
+* **Process:** LLM Parser extracts entities (Merchant ID, GPS, Sentiment) and structured intent.
+* **Output:** A standardized **Business Page** or **Travel Asset**.
 
-1) A conversation moves from group chat to 1:1 chat via an invite mechanism <br>
-   (initiated with C-tokens to discourage spam and signal intent).
+### 2.2 The Settlement Rail (On-Chain)
+* **Framework:** Anchor (Solana/Rust).
+* **Mechanism:** Program Derived Addresses (PDAs) create deterministic escrow vaults for each trip session.
+* **Trust Primitive:** Atomic swap execution. The `release_funds` instruction is only invoked upon cryptographic signature verification from both parties (Digital Handshake).
 
-2) The visitor requests a casual offline interaction
-   (e.g. a meal, neighborhood walk, or light local guidance).
+## 3. Core Loops & Usage
 
-3) The local proposes availability using an in-app scheduling flow.
+### Loop V1: The "Discovery" Rail (Chat → Asset → Reward)
+1.  **Trigger:** Users chat in group discussions (e.g., "Where is the best chicken?").
+2.  **Extraction:** User references a place (e.g., `#kkanbujongno`). The system calls the Places API and requests confirmation.
+3.  **Asset Creation:** A structured **Business Page** is created and linked to the chat.
+4.  **Closed-Loop Reward:** When visitors click outbound links, the referrer earns **C-Tokens** (internal ledger for reputation/visibility).
 
-4) Both parties agree on time and location.
+### Loop V2: The "Settlement" Rail (Private Interaction → Offline → Payout)
+1.  **Invite:** Conversation moves to 1:1 chat (gated by C-Tokens to signal intent/anti-spam).
+2.  **Commitment:** Visitor requests an offline interaction (meal, walk, styling).
+3.  **Escrow:** Visitor deposits funds (USDC) into the **Kori Escrow Vault**.
+4.  **Execution:** Parties meet. GPS + Time verification confirms the event.
+5.  **Settlement:** Funds are released to the Local; Visitor optionally tips via the Kori App.
 
-5) The visitor covers the local's meal or experience cost.
+## 4. Data Standard (TAS)
+The protocol defines the **Travel Asset Standard** for interoperability.
 
-6) After the interaction, the visitor optionally tips the local via Kori app.
-
-## Repo Layout
+## 5. Repo Layout
 - docs/ : system explanation + diagrams
 - modules/ : implementation units (API-agnostic where possible)
 - prototypes/ : mock data + demo scripts
 
-## Status
+## 6. Status
 Early-stage scaffold. Modules are intentionally separated so we can implement in phases
 while keeping the system auditable and extensible.
 
