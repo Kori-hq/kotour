@@ -12,6 +12,8 @@ It allows travelers and locals to chat, share recommendations, verify informatio
 
 Kotour is designed as a **Web2-first consumer app** with crypto-invisible onboarding, while selectively leveraging on-chain primitives for trust, escrow, and final settlement.
 
+Note: The consumer product is branded as **Kotour** to avoid confusion with unrelated Web2 chat applications, while the underlying infrastructure remains **Kori Protocol**.
+
 
 ## Repository Structure
 
