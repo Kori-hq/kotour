@@ -5,6 +5,14 @@
 **Kori Protocol is a dual-token "social settlement layer" that converts trusted social discovery into compliant, real-world commerce and payouts.**  
 It separates **coordination and reputation** from **financial settlement**, enabling Web2-friendly onboarding while leveraging on-chain escrow and verifiable settlement behind the scenes.
 
+### Kotour (Consumer Application)
+
+**Kotour** is the consumer-facing travel application built on **Kori Protocol**.  
+It allows travelers and locals to chat, share recommendations, verify information, and complete offline interactions (e.g. meetups, guidance, tips), while Kori Protocol handles verification, escrow, and settlement behind the scenes.
+
+Kotour is designed as a **Web2-first consumer app** with crypto-invisible onboarding, while selectively leveraging on-chain primitives for trust, escrow, and final settlement.
+
+
 ## Repository Structure
 
 - `programs/kori_protocol/`  
